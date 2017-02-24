@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		
+		<title>Autoservis Editor</title>
+
+		<link rel="stylesheet" type="text/css" href="css/demo.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+		<link rel="stylesheet" type="text/css" href="css/dataTables.tableTools.css">
+		<link rel="stylesheet" type="text/css" href="css/dataTables.editor.css">
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+
+		<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			var artikli = []; // ucitavamo artikle
+			$.get( "php/table.artikli.php",  
+				function( result ) {
+			  		if (typeof(result) != 'undefined'){
+						result =  JSON.parse(result);
+			  			artikli = result.data;
+			  		} else alert(result);
+			  		
+			});
+		</script>
+
+		<script type="text/javascript" language="javascript" charset="utf-8" src="js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" language="javascript" charset="utf-8" src="js/dataTables.tableTools.min.js"></script>
+		<script type="text/javascript" language="javascript" charset="utf-8" src="js/dataTables.editor.min.js"></script>
+		<script type="text/javascript" language="javascript" charset="utf-8" src="js/table.artikli.js"></script>
+		<script type="text/javascript" language="javascript" charset="utf-8" src="js/table.kuponi.js"></script>
+		<script type="text/javascript" language="javascript" charset="utf-8" src="js/table.tipovi.js"></script>
+		<script type="text/javascript" language="javascript" charset="utf-8" src="js/table.marke.js"></script>
+
+		<style type="text/css">
+			td.details-control {
+			    background: url('/itshop/2/img/details_open.png') no-repeat center center;
+			    cursor: pointer;
+			}
+			tr.shown td.details-control {
+			    background: url('/itshop/2/img/details_close.png') no-repeat center center;
+			}
+			tfoot input {
+		        width: 100%;
+		        padding: 3px;
+		        box-sizing: border-box;
+		    }
+		</style>
+	</head>
+	<body>
+		<div class="container" style="margin-bottom: 30px">
+		
+			<h1>
+				Tipovi
+			</h1>
+			
+			<table class="display" id="tipovi" width="100%">
+				<thead>
+					<tr>
+						<th>ID tipa</th>
+						<th>Naziv</th>
+						<th>Opis</th>
+					</tr>
+				</thead>
+			</table>
+		
+			<h1>
+				Marke
+			</h1>
+			
+			<table class="display" id="marke" width="100%">
+				<thead>
+					<tr>
+						<th>ID marke</th>
+						<th>Naziv</th>
+						<th>Opis</th>
+					</tr>
+				</thead>
+			</table>
+		
+			<h1>
+				Artikli
+			</h1>
+			
+			<table class="display" id="artikli" width="100%">
+				<thead>
+					<tr>
+						<th>Tip</th>
+						<th>Marka</th>
+						<th>Naziv</th>
+						<th>Opis</th>
+						<th>Cena</th>
+						<th>Stanje</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Tip</th>
+						<th>Marka</th>
+						<th>Naziv</th>
+						<th>Opis</th>
+						<th>Cena</th>
+						<th>Stanje</th>
+					</tr>
+				</tfoot>
+			</table>
+		
+			<h1>
+				Kuponi
+			</h1>
+			
+			<table class="display" id="kuponi" width="100%">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Artikl</th>
+						<th>Ime Prezime</th>
+						<th>Adresa stana</th>
+						<th>Email adresa</th>
+						<th>Telefon</th>
+					</tr>
+				</thead>
+			</table>
+
+		</div>
+	</body>
+</html>
